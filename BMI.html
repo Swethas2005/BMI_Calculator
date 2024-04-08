@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+    <title>BMI Calculator</title>
+    <style>
+        h1 {
+            font-weight: bolder;
+            font-size: 50px;
+            font-family: 'Poppins', sans-serif; 
+        }
+
+        h2{
+            font-weight: bolder;
+            font-size: 35px;
+            font-family: 'Poppins', sans-serif; 
+        }
+
+        input{
+            height: 30px;
+            width: 20%;
+            border-radius: 5px;
+            
+        }
+        input:hover {
+            border-color: aqua;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        button{
+            height: 30px;
+            width: 20%;
+            font-size: large;
+            border-radius: 5px;
+            border-color: aqua;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+    <h2>Put your weight in here(KG)</h2>
+    <input id = "weight" type="number" placeholder ="Enter your weight">
+
+    <h2>And your height here in (CM)</h2>
+    <input id = "height" type="number" placeholder="Enter your height">
+
+     <h2>BMI Calculation</h2>
+     <button onclick="calculateBMI()">Calculate BMI</button>
+     <!-- <h2>You BMI is 0 which means your 0</h2> -->
+    <h2 id="result"></h2>
+</body>
+<script>
+    function calculateBMI(){
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+        let output = document.getElementById("result");
+        let bmi = (weight) / (height * height)*10000;
+        if(bmi <= 18.4){
+            output.textContent="Your BMI is " + bmi  +" which means your UnderWeight";
+        }
+        else if (bmi >= 18.5 && bmi <= 24.9){
+            output.textContent="Your BMI is " + bmi  +" which means your NormalWeight";
+        }
+        else if (bmi >= 25 && bmi <= 29.9){
+            output.textContent="Your BMI is " + bmi  +" which means your OverWeight";
+        }
+        else if (bmi >=30){
+            output.textContent="Your BMI is " + bmi  +" which means your obese";
+        }
+        else {
+            output.textContent="PLease enter your weight and height";
+        }
+    }
+</script>
+</body>
+</html>
